@@ -89,8 +89,8 @@ class ListingsSpider(scrapy.Spider):
         profile = response.meta['item']
         lists_count = response.meta['lists_count']
         listing = response.meta['listing']
-        listing_count = json.loads(response.text)['data']['list']['subscriber_count']
-        url = 'https://twitter.com/i/api/graphql/klW5x-6r6Fhr-DqC2mib6g/ListSubscribers'
+        listing_count = json.loads(response.text)['data']['list']['member_count']
+        url = 'https://twitter.com/i/api/graphql/bs1ZNl4FXKtG4qbd6a79Sw/ListMembers'
         url += '?variables={"listId":"'+str(listing)
         url += '","count":'+str(min(listing_count, 100))+',"withSuperFollowsUserFields":true,"withDownvotePerspective":false,"withReactionsMetadata":false,"withReactionsPerspective":false,"withSuperFollowsTweetFields":true}&features={"dont_mention_me_view_api_enabled":true,"interactive_text_enabled":true,"responsive_web_uc_gql_enabled":false,"vibe_tweet_context_enabled":false,"responsive_web_edit_tweet_api_enabled":false,"standardized_nudges_misinfo":false,"responsive_web_enhance_cards_enabled":false}'
         yield scrapy.Request(
@@ -111,9 +111,9 @@ class ListingsSpider(scrapy.Spider):
         listing_count-=min(listing_count, 100)
 
         if len(accounts)==0:
-            entries = json.loads(response.text)['data']['list']['subscribers_timeline']['timeline']['instructions'][-1]['entries']
+            entries = json.loads(response.text)['data']['list']['members_timeline']['timeline']['instructions'][-1]['entries']
         else:
-            entries = json.loads(response.text)['data']['list']['subscribers_timeline']['timeline']['instructions'][-1]['entries']
+            entries = json.loads(response.text)['data']['list']['members_timeline']['timeline']['instructions'][-1]['entries']
     
         for entire in entries[:-2]:
             try:
@@ -122,7 +122,7 @@ class ListingsSpider(scrapy.Spider):
                 accounts.append(None)
         if listing_count!=0:
             cursor = (entries[-2]['content']['value']).replace('|', '%7C')
-            url = 'https://twitter.com/i/api/graphql/wsgiAScXAATH6OItSwqdZA/ListSubscribers?'
+            url = 'https://twitter.com/i/api/graphql/bs1ZNl4FXKtG4qbd6a79Sw/ListMembers?'
             url += 'variables={"listId":"'+str(listing)+'","count":'+str(min(listing_count, 100))+',"cursor":"'+cursor+'",'
             url += '"withSuperFollowsUserFields":true,"withDownvotePerspective":false,"withReactionsMetadata":false,"withReactionsPerspective":false,"withSuperFollowsTweetFields":true}&features={"dont_mention_me_view_api_enabled":true,"interactive_text_enabled":true,"responsive_web_uc_gql_enabled":false,"vibe_tweet_context_enabled":false,"responsive_web_edit_tweet_api_enabled":false,"standardized_nudges_misinfo":false,"responsive_web_enhance_cards_enabled":false}'
             yield scrapy.Request(
@@ -134,7 +134,7 @@ class ListingsSpider(scrapy.Spider):
                             callback = self.get_listing_followers,
                             )
         else:
-            profile['lists'].append({'subscribers': accounts, 'source': 'twitter.com/i/lists/'+listing})
+            profile['lists'].append({'members': accounts, 'source': 'twitter.com/i/lists/'+listing})
             #profile['lists']['']
         if len(profile['lists'])==lists_count:
             yield profile
