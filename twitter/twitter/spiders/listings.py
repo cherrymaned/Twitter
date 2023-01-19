@@ -7,29 +7,11 @@ urls = [
     ]
     
 headers = {
-'authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-'x-csrf-token': '4dc21af767197dc4fafda8fc702b5f51bbe1d423075de323ce106ed36ecf5a1dde5d4401eaca77d69b4e7d28bae7bc7f87065eb89491d0ac5a361f6b6eafe56056a0e86d803c760b63c766d7099ae01f',
-}
+'authorization': HIDDEN,
+'x-csrf-token': HIDDEN}
 
 cookies = {
-"kdt": "FDoxAx0ALY6rng8gBjxVuuAjm2hoLbQN9hdBwRSX",
-"des_opt_in": "Y",
-"d_prefs": "MToxLGNvbnNlbnRfdmVyc2lvbjoyLHRleHRfdmVyc2lvbjoxMDAw",
-"guest_id_ads": "v1%3A165462436114002252",
-"guest_id_marketing": "v1%3A165462436114002252",
-"personalization_id": "\"v1_gIw7/uGV3A79WzQNGSb0Yw==\"",
-"guest_id": "v1%3A165462491487486291",
-"at_check": "true",
-"ads_prefs": "\"HBERAAA=\"",
-"_twitter_sess": "BAh7ECIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADofbGFzdF9wYXNzd29yZF9jb25maXJtYXRpb24i%250AFTE2NTQ2MjU1MjQ3MzMwMDA6HnBhc3N3b3JkX2NvbmZpcm1hdGlvbl91aWQi%250AGDE1MzQyMzYzOTUxMDI5NDkzNzY6B2lkIiVkMGJlMDM0NGEwMWY0NTkyNDcw%250AZmFhMGU0MzZhNmM2ZDoPY3JlYXRlZF9hdGwrCCqHYj%252BBAToMY3NyZl9pZCIl%250AY2RiZWRhNDdhMTVjMDdhOThjYzVmMmE3YzBlM2YzYTg6CXVzZXJsKwkDQFba%250AzI8zFDoIcHJzaQw6CHBydWwrCQNAVtrMjzMUOghwcmwiK1g4Y1FJUmdaWUk5%250AV2xnN2ExeHdaSXlhb3BBZXBLVE51TzlqVGJWOghwcmFpBg%253D%253D--e5dac817ee13331b401272166c1a9ec9d90f7d0a",
-"g_state": "{\"i_l\":1,\"i_p\":1654633096778}",
-"auth_token": "6e66b4e8263d9d9c7de6ac9f69f424532e3cea5d",
-"ct0": "4dc21af767197dc4fafda8fc702b5f51bbe1d423075de323ce106ed36ecf5a1dde5d4401eaca77d69b4e7d28bae7bc7f87065eb89491d0ac5a361f6b6eafe56056a0e86d803c760b63c766d7099ae01f",
-"twid": "u%3D1534236395102949376",
-"lang": "en",
-"dnt": "1",
-"mbox": "PC#5937d99358e44372888e300828cbbad4.34_0#1718833881|session#4536004dca1e4802a07252ab59701aab#1655590941",
-"external_referer": "padhuUp37zhVBrP7koDaKNSjNjxAM0292FB6Go%2BR8EYJ%2FHrUctSkqA%3D%3D|0|8e8t2xd8A2w%3D"
+HIDDEN
 }
 
 class ListingsSpider(scrapy.Spider):
